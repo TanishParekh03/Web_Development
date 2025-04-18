@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cafe Aroma Menu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+    rel="stylesheet" />
+    <link rel="stylesheet" href="Aroma.css">
+</head>
+<body>
+
+  
+  <nav class="navbar">
+    <div class="navbar-container">
+      <ul class="navbar-menu">
+        <li><a href="index.html" class="navbar-link">Home</a></li>
+        <li class="navbar-item">
+          <a href="#" class="navbar-link">Cafe ▾</a>
+          <ul class="dropdown">
+            <li><a href="aroma.html">Cafe Aroma</a></li>
+            <li><a href="delight.html">Cafe Delight</a></li>
+            <li><a href="bliss.html">Cafe Bliss</a></li>
+            <li><a href="supreme.html">Cafe Supreme</a></li>
+          </ul>
+        </li>
+        <li><a href="Aboutus.html" class="navbar-link">About US</a></li>
+        <li><a href="gallery.html" class="navbar-link">Gallery</a></li>
+        <li><a href="login.html" class="navbar-link">Login</a></li>
+      </ul>
+    </div>
+  </nav>
+
+ 
+  <header>
+    <h1>Cafe Supreme Menu</h1>
+    <div class="shoppingBasket">
+        <img src="Cartfinal2.jpg" alt="">
+        <span class="quantity">0</span>
+    </div>
+</header>
+<div class="products"></div>
+</div>
+<div class="cart">
+<h3>Your Cart</h3>
+<ul class="productlist"></ul>
+<div class="checkout">
+    <div class="total"><small>Subtotal (0 items) : </small>₹0</div>
+    <button class="order-now" onclick="showOrderForm()">Order Now</button>
+    <div class="close">Close</div>
+</div>
+</div>
+<div class="order-form-container" id="orderForm">
+<div class="order-form">
+    <h2>Complete Your Order</h2>
+    <label for="name">Name:</label>
+    <input type="text" id="name" required>
+    <label>Phone Number:</label>
+    <input type="text" id="phone" required>
+    <label>Address:</label>
+    <textarea id="address" required></textarea>
+    <div class="order-total" id="orderTotal">Total: ₹0</div>
+    <button onclick="completeOrder()">Complete Order</button>
+    <button onclick="closeOrderForm()">Cancel</button>
+</div>
+</div>
+<footer class="footer">
+<p>&copy; 2025 White Chillies. All Rights Reserved.</p>
+</footer>
+</body>
+<script>
+let sandwiches = [
+{
+    id: 1,
+    name: "Supreme Pizza",
+    image: "Supreme_Pizza.jpg",
+    price: "₹349",
+    rating: "3.3"
+},
+{
+    id: 9,
+    name: "Thin Crust Pizza",
+    image: "img 14.jpg",
+    price: "₹210",
+    rating: "3.3"
+
+},
+{
+    id: 2,
+    name: "Volcano Sandwich",
+    image: "img6.jpg",
+    price: "₹369",
+    rating: "3.3"
+},
+{
+    id: 7,
+    name: "Korean_Burger",
+    image: "Korean_burger.jpg",
+    price: "₹149",
+    rating: "3.3"
+},
+{
+    id: 3,
+    name: "Guacamole Sandwich",
+    image: "guacamole_sandwich.jpg",
+    price: "₹289",
+    rating: "3.3"
+},
+{
+    id: 4,
+    name: "Cheese Chilly Grill Sandwich",
+    image: "img10.jpg",
+    price: "₹399",
+    rating: "3.3"
+},
+{
+    id: 8,
+    name: "Cheese Grill",
+    image: "grilled-cheese.jpg",
+    price: "₹225",
+    rating: "3.3"
+},
+{
+    id: 5,
+    name: "Masala Grill Sandwich",
+    image: "img11.jpg",
+    price: "₹219",
+    rating: "3.3"
+},
+
+
+]
+const body = document.querySelector("body");
+const products = document.querySelector(".products");
+shoppingBasket = document.querySelector(".shoppingBasket");
+closeCart = document.querySelector(".close");
+let productlist = document.querySelector(".productlist");
+let checkoutList = [];
+let quantity = document.querySelector(".quantity")
+let total = document.querySelector(".total");
+shoppingBasket.onclick = () => {
+body.classList.add("active");
+reloadcart();
+}
+closeCart.onclick = () => {
+body.classList.remove("active");
+}
+function onInIt() {
+sandwiches.forEach((item, key) =>{
+    let div = document.createElement("div");
+    div.classList.add("item");
+    div.innerHTML = `<img src="${item["image"]}"/>
+    <div class="name">${item.name}</div>
+    <div class="price">${item.price}</div>
+    <div class="rating">Rating: ${item.rating}</div>
+    <button onclick="addToCart(${key})">Add to Cart</button>`
+    products.appendChild(div)
+});  
+}
+onInIt();
+function addToCart(id){
+if (checkoutList[id] == null){
+    checkoutList[id] = sandwiches[id];
+    checkoutList[id].quantity = 1;
+}else{
+    checkoutList[id].quantity += 1;
+}
+reloadcart();
+}
+function reloadcart(){
+productlist.innerHTML = "";
+let count = 0;
+let totalprice = 0;
+checkoutList.forEach((item, key) => {
+    let a = item.price.slice(1);
+    let b = parseInt(a);
+    totalprice += b * item.quantity;
+    count += item.quantity;
+    let li = document.createElement("li");
+    li.innerHTML = `<img src="${item.image}">
+    <div>${item.name}</div>
+    <div>${item.price}</div>
+    <div>
+    <button onclick="changeQunatity(${key},${item.quantity - 1})">-</button>
+    <div class="count">${item.quantity}</div>
+    <button onclick="changeQunatity(${key},${item.quantity + 1})">+</button>
+    </div>`;
+    productlist.appendChild(li);
+    // console.log(item);
+    quantity.innerHTML = count
+    total.innerHTML = `<small>Subtotal (${count} items): </small>₹${totalprice}`;
+});
+
+}
+function changeQunatity(key, quantity){
+if (quantity == 0){
+    delete checkoutList[key];
+    total.innerHTML = `<small> Subtotal (0 items: )</small>₹0`;
+}else{
+    checkoutList[key].quantity = quantity;
+}
+reloadcart();
+}
+function showOrderForm(){
+let cartIsEmpty = checkoutList.every(item => item === undefined);
+if (cartIsEmpty){
+    alert("You have to add items in cart");
+    return;
+}
+document.getElementById("orderForm").style.display = "flex";
+let totalText = total.innerText.replace(/Subtotal \(\d+ items\) : /, "Total: ₹");
+document.getElementById("orderTotal").innerText = totalText; // Show total amount
+}
+function closeOrderForm() {
+document.getElementById("orderForm").style.display = "none";
+}
+function validateForm(){
+let name = document.getElementById("name").value.trim();
+let phone = document.getElementById("phone").value.trim();
+
+let address = document.getElementById("address").value.trim();
+
+let errorMessages = [];
+
+if (name === ""){
+    errorMessages.push("⚠️ Name is required.");
+}
+
+
+if (phone === "" || !/^\d{10}$/.test(phone)){
+    errorMessages.push("⚠️ Enter a valid 10-digit phone number.");
+}
+
+
+if (address === ""){
+    errorMessages.push("⚠️ Address is required.");
+}
+
+// If there are errors, show an alert
+if (errorMessages.length > 0){
+    alert("Please fix the following errors:\n\n" + errorMessages.join("\n"));
+    return false;
+}
+
+return true;
+}
+
+function completeOrder(){
+if (validateForm()){
+    alert("✅ Your order has been successfully completed!");
+    closeOrderForm();
+}
+}
+
+</script>
+
+</html>
