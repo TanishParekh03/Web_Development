@@ -77,58 +77,66 @@ let sandwiches = [
     id: 1,
     name: "Melting Sandwich",
     image: "img4.jpg",
-    price: "₹349",
-    rating: "3.3"
+    price: "₹300",
+    rating: "3.7",
+    comparision : "Cafe Aroma : Price - ₹349"
 },
 {
     id: 9,
     name: "Cheese Pizza",
     image: "classic-cheese-pizza.jpg",
     price: "₹210",
-    rating: "4.5"
+    rating: "4.6",
+    comparision : ""
 
 },
 {
     id: 2,
     name: "Volcano Sandwich",
     image: "img6.jpg",
-    price: "₹369",
-    rating: "3.3"
+    price: "₹380",
+    rating: "3.7",
+    comparision : "Cafe Aroma : Price - ₹369 <br> Cafe Supreme : Price - ₹400 "
 },
 {
     id: 7,
     name: "Burger",
     image: "Burger.jpg",
-    price: "₹149",
-    rating: "3.3"
+    price: "₹155",
+    rating: "3.6",
+    comparision : "Cafe Aroma : Price - ₹149"
 },
 {
     id: 3,
     name: "Mushroom Burger",
     image: "mushroom_burger.jpg",
     price: "₹250",
-    rating: "3"
+    rating: "3",
+     comparision : ""
 },
 {
     id: 4,
     name: "Cheese Chilly Grill Sandwich",
     image: "img10.jpg",
-    price: "₹399",
-    rating: "3.3"
+    price: "₹410",
+    rating: "3.4",
+    comparision : "Cafe Aroma : Price - ₹399 <br> Cafe Supreme : Price - ₹375 <br> Cafe Bliss : Price - ₹325 "
 },
 {
     id: 8,
     name: "Smash-Burger",
     image: "Smash-Burger.jpg",
     price: "₹225",
-    rating: "3.3"
+    rating: "3.7",
+     comparision : ""
 },
 {
     id: 5,
     name: "Italian Sandwich",
     image: "img 13.jpg",
     price: "₹219",
-    rating: "3.3"
+    rating: "3.9",
+     comparision : ""
 },
 
 ]
@@ -151,10 +159,14 @@ function onInIt() {
 sandwiches.forEach((item, key) =>{
     let div = document.createElement("div");
     div.classList.add("item");
+    const comparisonHTML = item.comparision
+              ? `<div class="comparision">Compare: ${item.comparision}</div><br>`
+              : "";
     div.innerHTML = `<img src="${item["image"]}"/>
     <div class="name">${item.name}</div>
     <div class="price">${item.price}</div>
     <div class="rating">Rating: ${item.rating}</div>
+    ${item.comparision}<br><br>
     <button onclick="addToCart(${key})">Add to Cart</button>`
     products.appendChild(div)
 });  
