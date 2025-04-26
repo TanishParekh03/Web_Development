@@ -132,12 +132,48 @@
         }
 
         .footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 40px;
-        }
+    background-color: #e65d5d; 
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+    margin-top: 40px;
+    font-family: 'Arial', sans-serif;
+}
+
+.footer-title {
+    font-size: 18px;
+    margin: 5px;
+}
+
+.footer-links {
+    font-size: 14px;
+    margin: 5px;
+}
+
+.footer-links a {
+    color: #FFDAB9; 
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-social {
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.footer-social a {
+    color: #FFDAB9;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.footer-social a:hover {
+    text-decoration: underline;
+}
 
         .navbar-item {
             position: relative;
@@ -189,7 +225,15 @@
                     </ul>
                 </li>
                 <li><a href="Aboutus.html" class="navbar-link">About US</a></li>
-                <li><a href="gallery.html" class="navbar-link">Gallery</a></li>
+                <li class="navbar-item">
+                    <a href="#" class="navbar-link">Cafe's Booking ▾</a>
+                    <ul class="dropdown">
+                      <li><a href="aroma_booking.html">Cafe Aroma</a></li>
+                      <li><a href="delight_booking.html">Cafe Delight</a></li>
+                      <li><a href="bliss_booking.html">Cafe Bliss</a></li>
+                      <li><a href="supreme_booking.html">Cafe Supreme</a></li>
+                    </ul>
+                  </li>
                 <li><a href="login.html" class="navbar-link">Login</a></li>
             </ul>
         </div>
@@ -216,8 +260,18 @@
     </div>
 
     <footer class="footer">
-        <p>&copy; 2025 White Chillies. All Rights Reserved.</p>
-    </footer>
+        <p class="footer-title">&copy; 2025 White Chillies Cafés. All rights reserved.</p>
+        <p class="footer-links">
+            <a href="#about">About Us</a> |
+            <a href="#contact">Contact</a> |
+            <a href="#gallery">Gallery</a>
+        </p>
+        <p class="footer-social">
+            Follow us on 
+            <a href="#">Instagram</a> |
+            <a href="#">Facebook</a>
+        </p>
+      </footer>
 </body>
 
 </html>

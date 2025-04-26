@@ -175,7 +175,7 @@
     right: -400px;
     width: 400px;
     height: 100vh;
-    z-index: 5;
+    z-index: 11;
     background-color: #453e3b;
     transition: right 0.3s ease;
   }
@@ -188,7 +188,7 @@
   }
   .cart .checkout {
     position: absolute;
-    bottom: 0;
+    bottom: 0px;
     width: 100%;
     display: grid;
     grid-template-areas: "nav tanish"
@@ -215,7 +215,7 @@
     cursor: pointer;
     font-size: 17px;
     color: white;
-    background-color: rgba(159, 225, 233, 0.329);
+    background-color: rgba(159, 225, 233);
   }
   .active .cart {
     right: 0;
@@ -326,14 +326,50 @@
     background-color: #c82333;
     transform: scale(1.05);
   }
-  
   .footer {
-    background-color: #333;
-    color: #fff;
+    background-color: #e65d5d; 
+    color: white;
     text-align: center;
-    padding: 20px 0;
+    padding: 20px 10px;
     margin-top: 40px;
-  }
+    font-family: 'Arial', sans-serif;
+}
+
+.footer-title {
+    font-size: 18px;
+    margin: 5px;
+}
+
+.footer-links {
+    font-size: 14px;
+    margin: 5px;
+}
+
+.footer-links a {
+    color: #FFDAB9; 
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-social {
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.footer-social a {
+    color: #FFDAB9;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.footer-social a:hover {
+    text-decoration: underline;
+}
+
   .navbar-item {
     position: relative;
   }
@@ -378,10 +414,27 @@
     color: #555;
     margin-top: 4px;
   }
-  .comparision {
-    font-size: 14px;
-    color: #a0522d;
-    margin-top: 5px;
-    font-style: italic;
+  .addToCart:active {
+    transform: scale(0.95);
+  }
+  .addToCart{
+    margin-top: auto;
+    background-color: #fec20c;
+    padding: 1em;
+    border : none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+  }
+  .name{
+    color: #4E342E;
+    font-weight: 700;
+    font-size: large;
+  }
+  .price{
+    color: #6D4C41;
+  }
+  .rating{
+    color: #FFD700;
   }
   

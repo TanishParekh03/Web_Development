@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="cafe_booking.css" />
+  <title>Sandwich Shop</title>
+</head>
+<body>
+  <header>
+    <h1>Our Cafés</h1>
+  </header>
+  <main>
+    <label for="cafeselect">Choose a café:</label>
+    <select id="cafeselect">
+      <option value="cafe-aroma.html">Cafe Aroma</option>
+      <option value="cafe-delight.html">Cafe Delight</option>
+      <option value="cafe-bliss.html">Cafe Bliss</option>
+      <option value="cafe-fusion.html">Cafe Fusion</option>
+    </select>
+  </main>
+  <script>
+    document.getElementById('cafeselect').addEventListener('change', function() {
+      window.location.href = this.value;
+    });
+  </script>
+</body>
+</html>

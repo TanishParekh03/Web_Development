@@ -361,4 +361,48 @@ section {
     display: block;
   }
   
+  .footer {
+    background-color: #e65d5d; 
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+    margin-top: 40px;
+    font-family: 'Arial', sans-serif;
+    
+}
+
+.footer-title {
+    font-size: 18px;
+    margin: 5px;
+}
+
+.footer-links {
+    font-size: 14px;
+    margin: 5px;
+}
+
+.footer-links a {
+    color: #FFDAB9; 
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-social {
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.footer-social a {
+    color: #FFDAB9;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.footer-social a:hover {
+    text-decoration: underline;
+}
 
